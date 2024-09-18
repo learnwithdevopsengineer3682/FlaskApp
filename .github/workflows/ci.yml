@@ -28,5 +28,5 @@ jobs:
 
       - name: Run Flask Tests
         run: |
-          docker exec flask-app-container pytest
+          docker exec flask-app-container pytest -n 2
 
