@@ -29,4 +29,4 @@ jobs:
       - name: Run Flask Tests
         run: |
           docker run -d flask-app:ci
-          docker exec flask-app-container pytest
+          docker run -it flask-app:ci /bin/bash pytest
