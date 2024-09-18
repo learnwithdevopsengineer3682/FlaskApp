@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests
         run: |
-          cocker run -d -p 5000:5000 flask-app:ci
+          docker run -d -p 5000:5000 flask-app:ci
 
       - name: Run Flask Tests
         run: |
