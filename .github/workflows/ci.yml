@@ -23,10 +23,13 @@ jobs:
 
       - name: Run Container
         run: |
-          docker run -d --name flask-app-container -p 5000:5000 --memory=1g flask-app:ci
+          docker run -d --name flask-app-container -p 5000:5000 --memory=2g flask-app:ci
 
-      - name: Wait for Container to Be Ready
+      - name: Wait for Container to be Ready
         run: sleep 10
+
+      - name: View Container Logs
+        run: docker logs flask-app-container
 
       - name: Run pytest
         run: |
