@@ -21,17 +21,17 @@ jobs:
       - name: Build Docker image
         run: docker build . -t flask-app:ci
 
-      - name: Run Container
+      - name: Run container
         run: |
-          docker run -d --name flask-app-container -p 5000:5000  flask-app:ci
-
-      - name: Wait for Container to be Ready
+          docker run -d --name flask-app-container -p 5000:5000 flask-app:ci
+      
+      - name: wait for container to be ready
         run: sleep 10
 
-      - name: View Container Logs
+      - name: View container Logs
         run: docker logs flask-app-container
 
-      - name: Run pytest
+      - name: Run flask Test
         run: |
-          docker exec flask-app-container sh -c "PYTHONPATH=/app pytest -v /app/tests/"
+          docker exec flask-app-container sh -c "pytest"
 
