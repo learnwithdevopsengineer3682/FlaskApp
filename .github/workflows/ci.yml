@@ -33,5 +33,5 @@ jobs:
 
       - name: Run pytest
         run: |
-          docker exec flask-app-container pytest -v /app/tests/
+          docker exec flask-app-container sh -c "PYTHONPATH=/app pytest -v /app/tests/"
 
