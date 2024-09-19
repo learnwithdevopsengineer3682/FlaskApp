@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest  # Run pytest to execute your tests
+          pytest  tests/ # Run pytest to execute your tests
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v1
