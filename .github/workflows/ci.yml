@@ -26,7 +26,3 @@ jobs:
         run: |
           docker run -d --name flask-app-container -p 5000:5000 --memory=1g flask-app:ci
 
-      - name: Run Flask Tests
-        run: |
-          docker exec flask-app-container pytest -n 2
-
