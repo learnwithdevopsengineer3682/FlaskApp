@@ -31,7 +31,7 @@ jobs:
       - name: View container Logs
         run: docker logs flask-app-container
 
-      - name: Run flask Test
+      - name: Run Flask Tests
         run: |
-          docker exec flask-app-container sh -c "pytest"
+          docker exec flask-app-container sh -c "PYTHONPATH=/app pytest -v /app/tests/"
 
