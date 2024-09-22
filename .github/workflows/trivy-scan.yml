@@ -25,12 +25,6 @@ jobs:
         uses: aquasecurity/trivy-action@0.20.0
         with:
           image-ref: 'flask-app:ci'
-          format: 'sarif'
+          format: 'table'
           exit-code: '1'
           severity: "HIGH,CRITICAL"
-          output: 'trivy-results.sarif'
-      
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: 'trivy-results.sarif'
