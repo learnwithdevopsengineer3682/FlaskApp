@@ -1,0 +1,30 @@
+name: Continuous Security Scanning with Trivy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v3
+      
+      - name: set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build docker image
+        run: docker build -t flask-app:ci .
+
+      - name: Run Trivy Securtiy Scan
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          image-ref: 'flask-app:ci'
+          format: 'table'
+          exit-code: '1'
+          severity: "HIGH,CRITICAL"
