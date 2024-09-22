@@ -2,8 +2,10 @@ name: Continuous Security Scanning with Trivy
 
 on:
   push:
+    branches:
     - main
   pull_request:
+    branches:
     - main
 
 jobs:
