@@ -27,7 +27,7 @@ jobs:
       - name: Build and Push Docker image with SHA tag
         run: |
             IMAGE_TAG=${{ github.sha }}
-            docker build -t "$DOCKER_USERNAME"/my-docker-app:${IMAGE_TAG} .
+            docker build -t "DOCKER_USERNAME"/my-docker-app:${IMAGE_TAG}" .
             docker push "$DOCKER_USERNAME"/my-docker-app:${IMAGE_TAG}
 
       - name: Log out from docker hub
