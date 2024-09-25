@@ -8,7 +8,7 @@ on:
 jobs:
  build:
     runs-on: ubuntu-latest
-    environment: DOCKER_USERNAME
+    environment: dev
     env:
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
@@ -22,7 +22,7 @@ jobs:
 
       - name: Log in to Docker Hub
         run: |
-         echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
       - name: Build and Push Docker image with SHA tag
         run: |
